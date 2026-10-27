@@ -1,0 +1,53 @@
+{
+  "name": "@codeauradev/ngx-signal-storage",
+  "version": "1.0.8",
+  "description": "Angular 22 signals for localStorage, sessionStorage, and cookies.",
+  "keywords": [
+    "angular",
+    "angular22",
+    "signals",
+    "localstorage",
+    "sessionstorage",
+    "cookies",
+    "ngx"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "main": "./src/public-api.ts",
+  "module": "./src/public-api.ts",
+  "types": "./src/public-api.ts",
+  "typings": "./src/public-api.ts",
+  "exports": {
+    ".": {
+      "types": "./src/public-api.ts",
+      "default": "./src/public-api.ts"
+    }
+  },
+  "peerDependencies": {
+    "@angular/core": "^22.2.3",
+    "rxjs": "^7.8.0"
+  },
+  "dependencies": {
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@angular/compiler": "22.2.3",
+    "@angular/compiler-cli": "22.2.3",
+    "@angular/core": "22.2.3",
+    "@types/node": "^26.6.5",
+    "ng-packagr": "22.2.3",
+    "prettier": "^3.9.10",
+    "rxjs": "7.8.2",
+    "tsx": "^4.20.5",
+    "typescript": "6.0.3"
+  },
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json && node --input-type=module -e \"import {readFileSync,writeFileSync} from 'node:fs'; const file='dist/package.json'; const pkg=JSON.parse(readFileSync(file,'utf8')); delete pkg.main; delete pkg.types; writeFileSync(file, JSON.stringify(pkg, null, 2)+'\\n');\"",
+    "test": "tsx --test test/*.test.ts",
+    "publish": "npm run build && cd dist && npm publish"
+  }
+}
