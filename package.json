@@ -1,7 +1,8 @@
 {
   "name": "@codeauradev/ngx-signal-storage",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "Angular 22 signals for localStorage, sessionStorage, and cookies.",
+  "homepage": "https://ngx-signal-storage.codeaura.dev",
   "keywords": [
     "angular",
     "angular22",
@@ -45,9 +46,12 @@
     "tsx": "^4.20.5",
     "typescript": "6.0.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeAuraDev/ngx-signal-storage"
+  },
   "scripts": {
     "build": "ng-packagr -p ng-package.json && node --input-type=module -e \"import {readFileSync,writeFileSync} from 'node:fs'; const file='dist/package.json'; const pkg=JSON.parse(readFileSync(file,'utf8')); delete pkg.main; delete pkg.types; writeFileSync(file, JSON.stringify(pkg, null, 2)+'\\n');\"",
-    "test": "tsx --test test/*.test.ts",
-    "publish": "npm run build && cd dist && npm publish"
+    "test": "tsx --test test/*.test.ts"
   }
 }
